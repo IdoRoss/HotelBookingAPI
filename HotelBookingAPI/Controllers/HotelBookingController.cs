@@ -17,54 +17,69 @@ namespace HotelBookingAPI.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateEdit(HotelBooking booking)
+        public IActionResult Create(HotelBooking booking)
         {
-            // id is null in json so we addto context
-            if(booking.Id== 0) 
-            { 
+            // id is null in json so we add to context
+            if (booking.Id == 0)
+            {
                 _context.Bookings.Add(booking);
+                _context.SaveChanges();
+                return StatusCode(StatusCodes.Status201Created, booking);
             }
             else
             {
-                var bookingInDb = _context.Bookings.FirstOrDefault(b=> b.Id== booking.Id);
-                if(bookingInDb==null)
-                {
-                    return new JsonResult(NotFound(booking));
-                }
-                bookingInDb = booking;
+                return NotFound(booking);
             }
+        }
+
+        [HttpPut]
+        public IActionResult Update(HotelBooking booking)
+        {
+            var currentBooking = _context.Bookings.Find(booking.Id);
+            if (currentBooking == null)
+            {
+                return NotFound(booking);
+            }
+
+            currentBooking.RoomNumber = booking.RoomNumber;
+            currentBooking.ClientName = booking.ClientName;
 
             _context.SaveChanges();
-            return new JsonResult(Ok(booking));
-        }
-        [HttpGet] public JsonResult Get(int id)
-        {
-            var res =  _context.Bookings.Find(id);
-
-            if(res == null) 
-            { 
-                return new JsonResult(NotFound(res));
-            }
-            return new JsonResult(res);
+            return Ok(currentBooking);
         }
 
-        [HttpDelete] public JsonResult Delete(int id)
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
             var res = _context.Bookings.Find(id);
-            if(res == null)
+
+            if (res == null)
             {
-                return new JsonResult(NotFound(res));
+                return NotFound(res);
+            }
+            return Ok(res);
+        }
+
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var res = _context.Bookings.Find(id);
+            if (res == null)
+            {
+                return NotFound(res);
             }
             _context.Bookings.Remove(res);
             _context.SaveChanges();
-            return new JsonResult(Ok(res));
+            return Ok(res);
         }
-        [HttpGet("/getall")]
-        public JsonResult GetAll(string id)
+
+        [HttpGet]
+        public IActionResult GetAll()
         {
             var res = _context.Bookings.ToList();
 
-            return new JsonResult(res);
+            return Ok(res);
         }
     }
 }

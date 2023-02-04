@@ -1242,23 +1242,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ido Rosenberger\\.nuget\\packages\\": {},
+    "C:\\Users\\idold\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\Drafts\\HotelBookingAPI\\HotelBookingAPI\\HotelBookingAPI.csproj",
+      "projectUniqueName": "C:\\Code\\HotelBookingAPI\\HotelBookingAPI\\HotelBookingAPI.csproj",
       "projectName": "HotelBookingAPI",
-      "projectPath": "D:\\Code\\Drafts\\HotelBookingAPI\\HotelBookingAPI\\HotelBookingAPI.csproj",
-      "packagesPath": "C:\\Users\\Ido Rosenberger\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\Drafts\\HotelBookingAPI\\HotelBookingAPI\\obj\\",
+      "projectPath": "C:\\Code\\HotelBookingAPI\\HotelBookingAPI\\HotelBookingAPI.csproj",
+      "packagesPath": "C:\\Users\\idold\\.nuget\\packages\\",
+      "outputPath": "C:\\Code\\HotelBookingAPI\\HotelBookingAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ido Rosenberger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\idold\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
